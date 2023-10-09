@@ -16,10 +16,11 @@ import java.util.Collection;
 @ToString
 public class Place implements Serializable {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int numero;
-    private double longitude,latitude,atitude;
+    private double longitude, latitude, atitude;
     @ManyToOne
     private Salle salle;
     @OneToMany(mappedBy = "place")

@@ -17,7 +17,8 @@ import java.util.Date;
 @ToString
 public class Seance implements Serializable {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Temporal(TemporalType.TIMESTAMP)
     private Date heureDebut;

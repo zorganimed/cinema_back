@@ -17,7 +17,8 @@ import java.util.Date;
 @ToString
 public class Projection implements Serializable {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date dateProjection;
     private double prix;
@@ -26,7 +27,7 @@ public class Projection implements Serializable {
     @ManyToOne
     private Film film;
     @OneToMany(mappedBy = "projection")
-    private Collection<Ticket > tickets;
+    private Collection<Ticket> tickets;
     @ManyToOne
     private Seance seance;
 }
