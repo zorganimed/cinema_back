@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")//@CrossOrigin("http://localhost:4200/")
 public class CinemaRestController {
 
     private FilmRepository filmRepository;
