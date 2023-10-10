@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Projection implements Serializable {
+public class  Projection implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
