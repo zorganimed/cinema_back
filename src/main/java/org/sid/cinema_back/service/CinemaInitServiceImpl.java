@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -62,7 +63,7 @@ public class CinemaInitServiceImpl implements ICinemaInitService{
                         Cinema cinema = new Cinema();
                         cinema.setName(nameCinema);
                         cinema.setVille(v);
-                        cinema.setNombreSalles(3+(int)Math.random()*7);
+                        cinema.setNombreSalles(5+(int)Math.random()*7);
                         cinemaRepository.save(cinema);
                     });
         });
@@ -142,10 +143,13 @@ public class CinemaInitServiceImpl implements ICinemaInitService{
     public void initProjections() {
 
         double[] prices = new double[]{30,50,60,70,90,100};
+        List<Film> films = filmRepository.findAll();
         villeRepository.findAll().forEach(ville->{
             ville.getCinemas().forEach(cinema -> {
                 cinema.getSalles().forEach(salle->{
-                    filmRepository.findAll().forEach(film->{
+                     int index = new Random().nextInt(films.size());
+                    //filmRepository.findAll().forEach(film->{
+                    Film film = films.get(index);
                         seanceRepository.findAll().forEach(seance->{
                             Projection projection = new Projection();
                             projection.setDateProjection(new Date());
@@ -155,7 +159,7 @@ public class CinemaInitServiceImpl implements ICinemaInitService{
                             projection.setSeance(seance);
                             projectionRepository.save(projection);
                         });
-                    });
+                   // });
                 });
             });
         });
