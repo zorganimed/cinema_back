@@ -1,6 +1,8 @@
 package org.sid.cinema_back;
 
 import org.sid.cinema_back.entities.Film;
+import org.sid.cinema_back.entities.Salle;
+import org.sid.cinema_back.entities.Ticket;
 import org.sid.cinema_back.service.ICinemaInitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -28,7 +30,7 @@ public class CinemaBackApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        restConfiguration.exposeIdsFor(Film.class);
+        restConfiguration.exposeIdsFor(Film.class, Salle.class, Ticket.class);
         iCinemaInitService.initVilles();
         iCinemaInitService.initCinemas();
         iCinemaInitService.initSalles();
